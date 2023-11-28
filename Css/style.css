@@ -14,7 +14,7 @@
 .sidebar{
 margin-left: -70px;
     position: relative;
-    width:256px;
+    width:250px;
     height:100vh;
     display: flex;
     flex-direction: column;
@@ -219,10 +219,11 @@ display: none;
 .contact ,.import{
     background-color:#fff;
     position: absolute;
-    margin-left: 220px;
-    margin-top: -550px;
-    width:75%;
+    margin-left: 190px;
+    margin-top: -650px;
+    width:79%;
     border-radius:30px;
+    height: 100%;
 }
 
 .card .title{
