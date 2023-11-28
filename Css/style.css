@@ -209,3 +209,34 @@ display: none;
         box-shadow: 0px 10px 8px rgba(0,0,0,0.1);
 }
 
+<<<<<<< HEAD
+=======
+.card{
+    height:500px;
+    padding:30px;
+    display: none;
+    width : calc(100vw-500px);
+}
+
+.card.active{
+    display: block;
+}
+
+.card .content{
+    font-size:1.5rem;
+}
+
+.contact ,.import{
+    background-color:#fff;
+    position: absolute;
+    margin-left: 265px;
+    margin-top: -550px;
+    width:70%;
+    border-radius:30px;
+}
+
+.card .title{
+    padding: 20px;
+    border-bottom: 1px solid #717171;
+}
+>>>>>>> a4f9c7d6dc384cb1f62fc555f0b215ad923a8bc7
