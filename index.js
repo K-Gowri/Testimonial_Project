@@ -39,14 +39,22 @@ var form = document.getElementById("myForm"),
   submitBtn = document.querySelector(".submit"),
   userInfo = document.getElementById("data"),
   modal = document.getElementById("userForm"),
-  modalTitle = document.querySelector("#userForm .modal-title")
-
+  modalTitle = document.querySelector("#userForm .modal-title"),
+   newUserBtn = document.querySelector('.newUser')
 
 
   let getData = localStorage.getItem('userProfile') ? JSON.parse(localStorage.getItem('userProfile')) : []
 
   let isEdit = false, editId
   showInfo()
+
+  newUserBtn.addEventListener('click' ,()=> {
+    submitBtn.innerText = 'Submit' ,
+    modalTitle.innerText = "Fill the Form"
+    isEdit = false
+    imgInput.src = "Images/user-1.jpg"
+    form.reset()
+  })
 
   file.onchange = function(){
     if(file.files[0].size < 1000000){
