@@ -315,14 +315,9 @@ form .inputField > div input{
     background: transparent;
     border-bottom: 2px solid blue;
 }
-
-
 .modal-footer .submit{
     font-size: 18px;
 }
-
-
-
 #readData form .inputField > div input{
     color: #000;
     font-size: 18px;
