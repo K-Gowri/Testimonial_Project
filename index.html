@@ -162,7 +162,7 @@
                             <td>9384475877</td>
                             <td>27/07/2003</td>
                             <td>
-                                <button class="btn btn-success"><i class="bi bi-eye"></i></button>
+                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
                                 <button class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
                                 <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
                             
@@ -244,18 +244,78 @@
            <input type="file" name="" id="imgInput">
            <i class="bi bi-plus-circle-dotted"></i>
                 </label>
-            <img src="Images/user-1.jpg" alt=""/>
+            <img src="Images/user-1.jpg" alt="" width="200" height="200" class="img"/>
+            </div>
+            <div class="inputField">
+                <div>
+                    <label for="name">Name :</label>
+                    <input type="text" name="" id="name">
+                </div>
+                <div>
+                    <label for="email">E-mail :</label>
+                    <input type="email" name="" id="email">
+                </div>
+                <div>
+                    <label for="mobile">Mobile No :</label>
+                    <input type="number" name="" id="mobile"  minlength="11" maxlength="11"     >
+                </div>
+                <div>
+                    <label for="sDate">Start Date :</label>
+                    <input type="date" name="" id="sDate">
+                </div>
             </div>
         </form>
     </div>
+    <div class="modal-footer">
+        <button type="submit" form="myForm" class="btn btn-primary submit">Submit</button>
+    </div>
+
 </div>
      </div>
 </div>
 
 
+<!--Read Data Modal-->
 
+<div class="modal fade" id="readData">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content">
+   <div class="modal-header">
+       <h4 class="modal-title">Profile</h4>
+       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+   </div>
 
+   <div class="modal-body">
+       <form action="#" id="myForm">
+           <div class="card-1 imgholder">
+              
+           <img src="Images/user-1.jpg" alt="" width="200" height="200"/>
+           </div>
+           <div class="inputField">
+               <div>
+                   <label for="name">Name :</label>
+                   <input type="text" name="" id="name" disabled>
+               </div>
+               <div>
+                   <label for="email">E-mail :</label>
+                   <input type="email" name="" id="email" disabled>
+               </div>
+               <div>
+                   <label for="mobile">Mobile No :</label>
+                   <input type="number" name="" id="mobile"  minlength="11" maxlength="11"     disabled >
+               </div>
+               <div>
+                   <label for="sDate">Start Date :</label>
+                   <input type="date" name="" id="sDate" disabled>
+               </div>
+           </div>
+       </form>
+   </div>
+  
 
+</div>
+    </div>
+</div>
     <!--jquery-->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
