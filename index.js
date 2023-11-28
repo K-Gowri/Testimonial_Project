@@ -10,11 +10,7 @@ $(".menu-btn").click(function(){
     $(".sidebar").toggleClass("active");
 });
 
-<<<<<<< HEAD
 
-
-
-=======
 const links= document.querySelectorAll(".nav > div > ul > li");
 const cards= document.querySelectorAll(".card");
 
@@ -32,4 +28,3 @@ const onLinkClick = (link, currentIndex) => {
     );
     currentCard.classList.add("active");
 };
->>>>>>> a4f9c7d6dc384cb1f62fc555f0b215ad923a8bc7
