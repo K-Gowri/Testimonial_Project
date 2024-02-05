@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            background: white;
+            padding: 60px;
+            width: 750px;
+            max-width: calc(100% - 60px);
+            border-radius: 5px;
+        }
+
+        .form-element {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+
+        .form-element span {
+            margin-bottom: 10px;
+        }
+
+        input,
+        textarea {
+            border: 1px solid #d0d2e2;
+            line-height: 2;
+            padding: 5px;
+
+            border-radius: 5px;
+        }
+
+        .submit{
+            width: 100%;
+            padding: 20px;
+            color: white;
+            background: #1aaaef;
+            border-radius: 5px;
+            border: none;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <h1> Your thoughts of Change</h1>
+        <div class="form-element">
+            <span>Name</span>
+            <input type="text" name="name" id="name" placeholder="Name">
+        </div>
+
+        <div class="form-element">
+            <span>What did you think of spotknack before joining?*</span>
+            <textarea name="join" id="join" cols="40" rows="1"></textarea>
+        </div>
+
+        <div class="form-element">
+            <span>What did you realize after joining and travelling with us ?</span>
+            <textarea name="travel" id="travel" cols="40" rows="1"></textarea>
+        </div>
+
+        <div class="form-element">
+            <span>If we ask you describe spotknack in few words, how would you describe us?
+                *</span>
+            <textarea name="words" id="words" cols="40" rows="1"></textarea>
+        </div>
+
+        <div class="form-element">
+            <span>What's one thing at spotknack that surprised you / you liked it the most ?</span>
+            <textarea name="most" id="most" cols="40" rows="1"></textarea>
+        </div>
+
+        <div class="form-element">
+            <span>We introduced split and pay option to help students and reduce the burden of money and what do you
+                feel about the value of money spent to join? Share your thoughts!</span>
+            <textarea name="burden" id="burden" cols="40" rows="1"></textarea>
+        </div>
+
+        <div class="form-element">
+            <span>Will you recommend spotknack to your friends to prepare for the career ? If Yes , why would you
+                recommend ?
+                *
+            </span>
+            <textarea name="career" id="career" cols="40" rows="1"></textarea>
+        </div>
+        <input  class="submit" type="submit" />
+
+    </form>
+
+    <script>
+
+        let form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let data = new FormData(form);
+            console.log(data);
+            
+            fetch("https://script.google.com/macros/s/AKfycbzBE-Yzh9ISu2H0vWwBD_jHoSXXbjsTVQDzq4YBq7cCgc8Su_EsXa7wy_LoNWeyElRu/exec", {
+                method: "POST",
+                body: data
+            }).then(res => res.text).then(data => {form.reset(); alert('Data Submitted Successfully')}
+           );
+        })
+
+    </script>
+
+
+</body>
+
+</html>
