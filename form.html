@@ -15,7 +15,6 @@
     <style>
         * {
             box-sizing: border-box;
-
         }
 
         body {
@@ -25,6 +24,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            height: 100%;
         }
 
         form {
@@ -33,6 +33,7 @@
             width: 750px;
             max-width: calc(100% - 60px);
             border-radius: 5px;
+            height: 100%;
         }
 
         .form-element {
@@ -50,10 +51,8 @@
             border: 1px solid #d0d2e2;
             line-height: 2;
             padding: 5px;
-
             border-radius: 5px;
         }
-
         .submit{
             width: 100%;
             padding: 20px;
@@ -72,9 +71,12 @@
         <h1> Your thoughts of Change</h1>
         <div class="form-element">
             <span>Name</span>
-            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="text" name="name" id="name" placeholder="Your Name">
         </div>
-
+        <div class="form-element">
+            <span>Email</span>
+            <input type="email" name="email" id="email" placeholder="Your Email">
+        </div>
         <div class="form-element">
             <span>What did you think of spotknack before joining?*</span>
             <textarea name="join" id="join" cols="40" rows="1"></textarea>
@@ -113,22 +115,7 @@
 
     </form>
 
-    <script>
-
-        let form = document.querySelector('form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            let data = new FormData(form);
-            console.log(data);
-            
-            fetch("https://script.google.com/macros/s/AKfycbzBE-Yzh9ISu2H0vWwBD_jHoSXXbjsTVQDzq4YBq7cCgc8Su_EsXa7wy_LoNWeyElRu/exec", {
-                method: "POST",
-                body: data
-            }).then(res => res.text).then(data => {form.reset(); alert('Data Submitted Successfully')}
-           );
-        })
-
-    </script>
+    <script src="./feedback.js"></script>
 
 
 </body>
