@@ -150,6 +150,7 @@
                                    
                                     <th>Start Date</th>
                                     <th>Action</th>
+                                    <th>Feedback</th>
                                    
                                 </tr>
                              </thead>
@@ -219,12 +220,12 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button type="submit" form="myForm" class="btn btn-primary submit">Submit</button>
+        <button type="button" form="myForm" class="btn btn-primary submit" id="submit">Submit</button>
     </div>
 
 </div>
      </div>
-</div>
+    </div>
 
 
 <!--Read Data Modal-->
@@ -246,19 +247,19 @@
            <div class="inputField">
                <div>
                    <label for="name">Name :</label>
-                   <input type="text" name="" id="showName" disabled>
+                   <input type="text" name="" id="showName" disabled required>
                </div>
                <div>
                    <label for="email">E-mail :</label>
-                   <input type="email" name="" id="showEmail" disabled>
+                   <input type="email" name="" id="showEmail" disabled required>
                </div>
                <div>
                    <label for="mobile">Mobile No :</label>
-                   <input type="number" name="" id="showMobile"  minlength="11" maxlength="11"     disabled >
+                   <input type="number" name="" id="showMobile"  minlength="11" maxlength="11"     disabled required>
                </div>
                <div>
                    <label for="sDate">Start Date :</label>
-                   <input type="date" name="" id="showsDate" disabled>
+                   <input type="date" name="" id="showsDate" disabled required>
                </div>
            </div>
        </form>
@@ -278,5 +279,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+<!-- <script src="./database.js"></script> -->
 </body>
 </html>
