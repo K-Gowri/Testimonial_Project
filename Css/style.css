@@ -322,9 +322,12 @@ form .inputField > div input{
     color: #000;
     font-size: 18px;
 }
-
-
-
-
-
-
+.sendEmail
+{
+    position: absolute;
+    top: 10%;
+    left: 78%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 5px;
+}

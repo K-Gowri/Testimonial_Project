@@ -1,4 +1,37 @@
 {
   "feedback": [
+    {
+      "id": "1",
+      "name": "Pranav",
+      "email": "pranavkrishnaa.2003@gmail.com",
+      "join": "a",
+      "travel": "c",
+      "words": "a",
+      "most": "a",
+      "burden": "a",
+      "career": "a"
+    },
+    {
+      "id": "2",
+      "name": "Pranav",
+      "email": "pranav.2002@srit.org",
+      "join": "a",
+      "travel": "a",
+      "words": "a",
+      "most": "a",
+      "burden": "a",
+      "career": "a"
+    },
+    {
+      "id": "3",
+      "name": "nithish",
+      "email": "nithish.2002@srit.org",
+      "join": "a",
+      "travel": "aa",
+      "words": "a",
+      "most": "a",
+      "burden": "a",
+      "career": "a"
+    }
   ]
 }

@@ -42,6 +42,9 @@ var form = document.getElementById("myForm"),
   modalTitle = document.querySelector("#userForm .modal-title"),
    newUserBtn = document.querySelector('.newUser')
 
+const sendEmail = document.getElementById('sendEmail')
+const feedbackMails = []
+
 
 let getData = localStorage.getItem('userProfile') ? JSON.parse(localStorage.getItem('userProfile')) : []
 
@@ -79,59 +82,80 @@ function showInfo(){
             const mailSplit = mail
             
             const feedbackCheck = async (mailSplit) => {
-                const feedbackResponse = await fetch("http://localhost:3000/feedback")
+                const feedbackResponse = await fetch("http://localhost:3001/feedback")
                 const feedbackJson = await feedbackResponse.json()
-                
-                for(let feedback of feedbackJson)
-                {
-                    if(feedback.email === mailSplit)
+                if(feedbackJson.length){
+                    for(let feedback of feedbackJson)
                     {
-                        fstatus = true
-                        break
+                        if(feedback.email === mailSplit)
+                        {
+                            fstatus = true
+                            feedbackMails.push(mail)
+                            break
+                        }
+                        else
+                        {
+                            fstatus = false
+                        }
+                    }
+
+                    if(fstatus)
+                    {
+                        let createElement = `<tr class="employeeDetails">
+                            <td>${index+1}</td>
+                            <td><img src="${element.picture}" alt="" width="50" height="50"></td>
+                            <td>${element.employeeName}</td>
+                            <td>${element.employeeEmail}</td>
+                            <td>${element.employeeMobile}</td>
+                            <td>${element.startDate}</td>
+
+                            <td>
+                                <button class="btn btn-success" onclick="readInfo('${element.picture}','${element.employeeName}','${element.employeeEmail}', '${element.employeeMobile}','${element.startDate}' )" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
+                                <button class="btn btn-primary" onclick="editInfo(${index}, ${element.id}, '${element.picture}','${element.employeeName}','${element.employeeEmail}', '${element.employeeMobile}','${element.startDate}' )" data-bs-toggle="modal" data-bs-target="#userForm"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-danger" onclick="deleteInfo(${index},${element.id})"><i class="bi bi-trash"></i></button>
+                            </td>
+                            <td><p class = 'feedbackstatus'>Submitted</p></td>
+                        </tr>`
+                        userInfo.innerHTML += createElement
                     }
                     else
                     {
-                        fstatus = false
+                        let createElement = `<tr class="employeeDetails">
+                            <td>${index+1}</td>
+                            <td><img src="${element.picture}" alt="" width="50" height="50"></td>
+                            <td>${element.employeeName}</td>
+                            <td>${element.employeeEmail}</td>
+                            <td>${element.employeeMobile}</td>
+                            <td>${element.startDate}</td>
+
+                            <td>
+                                <button class="btn btn-success" onclick="readInfo('${element.picture}','${element.employeeName}','${element.employeeEmail}', '${element.employeeMobile}','${element.startDate}' )" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
+                                <button class="btn btn-primary" onclick="editInfo(${index}, ${element.id}, '${element.picture}','${element.employeeName}','${element.employeeEmail}', '${element.employeeMobile}','${element.startDate}' )" data-bs-toggle="modal" data-bs-target="#userForm"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-danger" onclick="deleteInfo(${index},${element.id})"><i class="bi bi-trash"></i></button>
+                            </td>
+                            <td><p class = 'feedbackstatus'>Pending</p></td>
+                        </tr>`
+                        userInfo.innerHTML += createElement
                     }
-                }
-
-                if(fstatus)
-                {
-                    let createElement = `<tr class="employeeDetails">
-                        <td>${index+1}</td>
-                        <td><img src="${element.picture}" alt="" width="50" height="50"></td>
-                        <td>${element.employeeName}</td>
-                        <td>${element.employeeEmail}</td>
-                        <td>${element.employeeMobile}</td>
-                        <td>${element.startDate}</td>
-
-                        <td>
-                            <button class="btn btn-success" onclick="readInfo('${element.picture}','${element.employeeName}','${element.employeeEmail}', '${element.employeeMobile}','${element.startDate}' )" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
-                            <button class="btn btn-primary" onclick="editInfo(${index}, ${element.id}, '${element.picture}','${element.employeeName}','${element.employeeEmail}', '${element.employeeMobile}','${element.startDate}' )" data-bs-toggle="modal" data-bs-target="#userForm"><i class="bi bi-pencil-square"></i></button>
-                            <button class="btn btn-danger" onclick="deleteInfo(${index},${element.id})"><i class="bi bi-trash"></i></button>
-                        </td>
-                        <td><p class = 'feedbackstatus'>Submitted</p></td>
-                    </tr>`
-                    userInfo.innerHTML += createElement
                 }
                 else
                 {
                     let createElement = `<tr class="employeeDetails">
-                        <td>${index+1}</td>
-                        <td><img src="${element.picture}" alt="" width="50" height="50"></td>
-                        <td>${element.employeeName}</td>
-                        <td>${element.employeeEmail}</td>
-                        <td>${element.employeeMobile}</td>
-                        <td>${element.startDate}</td>
+                            <td>${index+1}</td>
+                            <td><img src="${element.picture}" alt="" width="50" height="50"></td>
+                            <td>${element.employeeName}</td>
+                            <td>${element.employeeEmail}</td>
+                            <td>${element.employeeMobile}</td>
+                            <td>${element.startDate}</td>
 
-                        <td>
-                            <button class="btn btn-success" onclick="readInfo('${element.picture}','${element.employeeName}','${element.employeeEmail}', '${element.employeeMobile}','${element.startDate}' )" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
-                            <button class="btn btn-primary" onclick="editInfo(${index}, ${element.id}, '${element.picture}','${element.employeeName}','${element.employeeEmail}', '${element.employeeMobile}','${element.startDate}' )" data-bs-toggle="modal" data-bs-target="#userForm"><i class="bi bi-pencil-square"></i></button>
-                            <button class="btn btn-danger" onclick="deleteInfo(${index},${element.id})"><i class="bi bi-trash"></i></button>
-                        </td>
-                        <td><p class = 'feedbackstatus'>Pending</p></td>
-                    </tr>`
-                    userInfo.innerHTML += createElement
+                            <td>
+                                <button class="btn btn-success" onclick="readInfo('${element.picture}','${element.employeeName}','${element.employeeEmail}', '${element.employeeMobile}','${element.startDate}' )" data-bs-toggle="modal" data-bs-target="#readData"><i class="bi bi-eye"></i></button>
+                                <button class="btn btn-primary" onclick="editInfo(${index}, ${element.id}, '${element.picture}','${element.employeeName}','${element.employeeEmail}', '${element.employeeMobile}','${element.startDate}' )" data-bs-toggle="modal" data-bs-target="#userForm"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-danger" onclick="deleteInfo(${index},${element.id})"><i class="bi bi-trash"></i></button>
+                            </td>
+                            <td><p class = 'feedbackstatus'>Pending</p></td>
+                        </tr>`
+                        userInfo.innerHTML += createElement
                 }
             }
         
@@ -220,7 +244,7 @@ submitBtn.addEventListener('click', (e) => {
 
 // JSON Coding
 
-const API_URL = "http://localhost:5501/users"; // Local server JSON API
+const API_URL = "http://localhost:3000/users"; // Local server JSON API
 
 function handleSubmit() {
     const userList = JSON.parse(localStorage.getItem("userProfile"))
@@ -231,7 +255,8 @@ function handleSubmit() {
         employeeName: `${userName.value}`,
         employeeEmail: `${email.value}`,
         employeeMobile: `${phone.value}`,
-        startDate: `${sDate.value}`
+        startDate: `${sDate.value}`,
+        feedback: 'Pending'
     }
    postData(API_URL, user)
 }
@@ -240,7 +265,7 @@ const postData = async (API_URL, user) => {
     console.log(JSON.stringify(user))
     try
     {
-        const response = await fetch(API_URL, {
+        await fetch(API_URL, {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
@@ -257,7 +282,7 @@ const postData = async (API_URL, user) => {
 const deleteUser = async (id) => {
     try
     {
-        const result = await fetch(`${API_URL}/${id}`, {
+        await fetch(`${API_URL}/${id}`, {
             method : "DELETE",
         })
     }
@@ -270,12 +295,11 @@ const deleteUser = async (id) => {
 const handleEditUser = async (id, editUser) => {
     try
     {
-        const result = await fetch(`${API_URL}/${id}`, {
+        await fetch(`${API_URL}/${id}`, {
             method : "PUT",
             headers : {"Content-Type" : "application/json"},
             body : JSON.stringify(editUser)
         })
-        console.log(result)
     }
     catch(err)
     {
@@ -283,3 +307,19 @@ const handleEditUser = async (id, editUser) => {
     }
 }
 
+sendEmail.addEventListener('click', () => {
+    const mails = feedbackMails.join(',');
+    const formdata = new FormData();
+    formdata.append("mails",`${mails}` );
+
+    const requestOptions = {
+    method: "POST",
+    body: formdata,
+    redirect: "follow"
+    };
+
+    fetch("http://localhost/testimonial/mailer.php", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+})

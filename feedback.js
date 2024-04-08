@@ -1,5 +1,5 @@
 let form = document.querySelector('form');
-const API_URL = 'http://localhost:3000/feedback'
+const API_URL = 'http://localhost:3001/feedback'
 const userName = document.getElementById('name')
 const email = document.getElementById('email')
 const join = document.getElementById('join')
