@@ -4,34 +4,36 @@
       "id": "1",
       "name": "Pranav",
       "email": "pranavkrishnaa.2003@gmail.com",
-      "join": "a",
-      "travel": "c",
-      "words": "a",
-      "most": "a",
       "burden": "a",
       "career": "a"
     },
     {
       "id": "2",
-      "name": "Pranav",
-      "email": "pranav.2002@srit.org",
-      "join": "a",
-      "travel": "a",
-      "words": "a",
-      "most": "a",
-      "burden": "a",
-      "career": "a"
+      "name": "Gowri ",
+      "email": "20033ueo07@avinuty.ac.in",
+      "burden": "",
+      "career": ""
     },
     {
       "id": "3",
-      "name": "nithish",
-      "email": "nithish.2002@srit.org",
-      "join": "a",
-      "travel": "aa",
-      "words": "a",
-      "most": "a",
-      "burden": "a",
-      "career": "a"
+      "name": "Ahila",
+      "email": "ahila@gmail.com",
+      "burden": "",
+      "career": ""
+    },
+    {
+      "id": "4",
+      "name": "Janani J",
+      "email": "2003@gmail.com",
+      "burden": " mc ",
+      "career": " cd"
+    },
+    {
+      "id": "5",
+      "name": "Rajakumari",
+      "email": "Rajakumari@gmail.com",
+      "burden": "n ncx",
+      "career": " xnmsx"
     }
   ]
 }

@@ -2,29 +2,20 @@
   "users": [
     {
       "id": "1",
-      "picture": "http://127.0.0.1:5501/Images/user-1.jpg",
-      "employeeName": "Pranav Krishnaa S",
-      "employeeEmail": "pranavkrishnaa.2003@gmail.com",
-      "employeeMobile": "8248469714",
-      "startDate": "2024-04-09",
+      "picture": "http://127.0.0.1:5500/Testimonial_Project/Images/user-1.jpg",
+      "employeeName": "Rajakumari",
+      "employeeEmail": "Rajakumari@gmail.com",
+      "employeeMobile": "09384475877",
+      "startDate": "2024-06-06",
       "feedback": "Pending"
     },
     {
       "id": "2",
-      "picture": "http://127.0.0.1:5501/Images/user-1.jpg",
-      "employeeName": "Pranav Krishnaa S",
-      "employeeEmail": "pranav.2002@srit.org",
-      "employeeMobile": "8248469714",
-      "startDate": "2024-04-09",
-      "feedback": "Pending"
-    },
-    {
-      "id": "3",
-      "picture": "http://127.0.0.1:5501/Images/user-1.jpg",
-      "employeeName": "nithish",
-      "employeeEmail": "nithish.2002@srit.org",
-      "employeeMobile": "08248469714",
-      "startDate": "2024-04-18",
+      "picture": "http://127.0.0.1:5500/Testimonial_Project/Images/user-1.jpg",
+      "employeeName": "Nithya ",
+      "employeeEmail": "Nitha_cse@gmail.com",
+      "employeeMobile": "09384475877",
+      "startDate": "2024-05-29",
       "feedback": "Pending"
     }
   ]

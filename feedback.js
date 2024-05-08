@@ -9,6 +9,7 @@ const most = document.getElementById('most')
 const burden = document.getElementById('burden')
 const career = document.getElementById('career')
 
+
 const getFeedbackData = async (url) =>
 {
     const response = await fetch(url)
@@ -24,10 +25,6 @@ form.addEventListener('submit', (e) => {
         id: `${id}`,
         name: `${userName.value}`,
         email: `${email.value}`,
-        join: `${join.value}`,
-        travel: `${travel.value}`,
-        words: `${words.value}`,
-        most: `${most.value}`,
         burden: `${burden.value}`,
         career: `${career.value}`
     }

@@ -90,11 +90,12 @@ function showInfo(){
                         if(feedback.email === mailSplit)
                         {
                             fstatus = true
-                            feedbackMails.push(mail)
+                        
                             break
                         }
                         else
                         {
+                            feedbackMails.push(mail)
                             fstatus = false
                         }
                     }
@@ -309,6 +310,7 @@ const handleEditUser = async (id, editUser) => {
 
 sendEmail.addEventListener('click', () => {
     const mails = feedbackMails.join(',');
+    console.log(mails);
     const formdata = new FormData();
     formdata.append("mails",`${mails}` );
 

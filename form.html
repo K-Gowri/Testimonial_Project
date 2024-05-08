@@ -45,6 +45,25 @@
         .form-element span {
             margin-bottom: 10px;
         }
+        .closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.alert.success {background-color: #04AA6D;}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
 
         input,
         textarea {
@@ -61,63 +80,77 @@
             border-radius: 5px;
             border: none;
             font-size: 17px;
+            font-weight: bold;
         }
+        .submit:hover{
+            background-color: #eee;
+            color: #1aaaef;
+            border: 2px solid  #1aaaef;
+            
+        }
+        .alert{
+            display: none;
+        }
+        #panel{
+            position: absolute;
+            margin-top: -500px;
+            margin-bottom: 200%;
+            margin-left: 130px;
+
+        }
+
     </style>
 </head>
 
 <body>
 
     <form>
-        <h1> Your thoughts of Change</h1>
+        <h1> Your Thoughts of Change </h1>
         <div class="form-element">
-            <span>Name</span>
+            <span>Name <span style="color:red;">*</span></span>
             <input type="text" name="name" id="name" placeholder="Your Name">
         </div>
         <div class="form-element">
-            <span>Email</span>
+            <span>Email <span style="color:red;">*</span></span>
             <input type="email" name="email" id="email" placeholder="Your Email">
         </div>
-        <div class="form-element">
-            <span>What did you think of spotknack before joining?*</span>
-            <textarea name="join" id="join" cols="40" rows="1"></textarea>
-        </div>
-
-        <div class="form-element">
-            <span>What did you realize after joining and travelling with us ?</span>
-            <textarea name="travel" id="travel" cols="40" rows="1"></textarea>
-        </div>
-
-        <div class="form-element">
-            <span>If we ask you describe spotknack in few words, how would you describe us?
-                *</span>
-            <textarea name="words" id="words" cols="40" rows="1"></textarea>
-        </div>
-
-        <div class="form-element">
-            <span>What's one thing at spotknack that surprised you / you liked it the most ?</span>
-            <textarea name="most" id="most" cols="40" rows="1"></textarea>
-        </div>
+       
 
         <div class="form-element">
             <span>We introduced split and pay option to help students and reduce the burden of money and what do you
-                feel about the value of money spent to join? Share your thoughts!</span>
+                feel about the value of money spent to join? Share your thoughts! <span style="color:red;">*</span></span> 
             <textarea name="burden" id="burden" cols="40" rows="1"></textarea>
         </div>
 
         <div class="form-element">
-            <span>Will you recommend spotknack to your friends to prepare for the career ? If Yes , why would you
-                recommend ?
-                *
+            <span>Will you recommend this to your friends to prepare for the career ? If Yes , why would you
+                recommend ? <span style="color:red;">*</span>
             </span>
             <textarea name="career" id="career" cols="40" rows="1"></textarea>
         </div>
-        <input  class="submit" type="submit" />
+        <div class="alert success" id="panel">
+            <span class="closebtn">&times;</span>  
+            <strong>Success!</strong> The Form has submitted.
+          </div>
+        <input  class="submit" type="submit" onclick="success()" />
 
     </form>
 
     <script src="./feedback.js"></script>
-
-
+    <script>
+var close = document.getElementsByClassName("closebtn");
+var i;
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function(){
+          var div = this.parentElement;
+          div.style.opacity = "0";
+          setTimeout(function(){ div.style.display = "none"; }, 600);
+        }
+      }
+      function success() {
+  document.getElementById("panel").style.display = "block";
+}
+      </script>
 </body>
 
 </html>

@@ -327,7 +327,19 @@ form .inputField > div input{
     position: absolute;
     top: 10%;
     left: 78%;
-    border: 1px solid #000;
+    border: 2px solid rgb(92, 149, 209);
     border-radius: 10px;
     padding: 5px;
+    color: rgb(92, 149, 209);
+    background-color: #fff;
+    font-size: medium;
+    font-family: 'Poppins', sans-serif;
+
+    
+}
+.sendEmail:hover{
+    background-color: rgb(92, 149, 209);
+    color: #fff;
+    font-size: medium;
+    font-family: 'Poppins', sans-serif;
 }
