@@ -43,7 +43,6 @@ var form = document.getElementById("myForm"),
    newUserBtn = document.querySelector('.newUser')
 
 const sendEmail = document.getElementById('sendEmail')
-const feedbackMails = []
 
 
 let getData = localStorage.getItem('userProfile') ? JSON.parse(localStorage.getItem('userProfile')) : []
@@ -80,7 +79,6 @@ function showInfo(){
     getData.forEach((element, index) => {
             const handleFeedback = (mail) => {
             const mailSplit = mail
-            
             const feedbackCheck = async (mailSplit) => {
                 const feedbackResponse = await fetch("http://localhost:3001/feedback")
                 const feedbackJson = await feedbackResponse.json()
@@ -90,12 +88,10 @@ function showInfo(){
                         if(feedback.email === mailSplit)
                         {
                             fstatus = true
-                        
                             break
                         }
                         else
                         {
-                            feedbackMails.push(mail)
                             fstatus = false
                         }
                     }
@@ -159,7 +155,6 @@ function showInfo(){
                         userInfo.innerHTML += createElement
                 }
             }
-        
             feedbackCheck(mailSplit)
         }
         handleFeedback(element.employeeEmail)
@@ -173,7 +168,6 @@ function  readInfo(pic,name,email,phone,sDate){
     document.querySelector("#showEmail").value = email,
     document.querySelector("#showMobile").value = phone,
     document.querySelector("#showsDate").value = sDate
-
 }
 
 function editInfo(index,id,pic,name,Email,Phone,Sdate){
@@ -202,9 +196,9 @@ function editInfo(index,id,pic,name,Email,Phone,Sdate){
 
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
+    localStorage.setItem('userProfile', JSON.stringify(getData))
     if(submitBtn.innerHTML === 'Submit'){
         const userList = JSON.parse(localStorage.getItem("userProfile"))
-
         const information = {
             id: userList.length ? userList[userList.length - 1].id + 1 : 1,
             picture:  imgInput.src == undefined ? "Images/user-1.jpg" : imgInput.src,
@@ -257,7 +251,6 @@ function handleSubmit() {
         employeeEmail: `${email.value}`,
         employeeMobile: `${phone.value}`,
         startDate: `${sDate.value}`,
-        feedback: 'Pending'
     }
    postData(API_URL, user)
 }
@@ -308,9 +301,26 @@ const handleEditUser = async (id, editUser) => {
     }
 }
 
-sendEmail.addEventListener('click', () => {
-    const mails = feedbackMails.join(',');
-    console.log(mails);
+sendEmail.addEventListener('click', async () => {
+
+    const array = []
+
+    const userResponse = await fetch('http://localhost:3000/users');
+    const userJson = await userResponse.json()
+
+    const feedbackResponse = await fetch('http://localhost:3001/feedback')
+    const feedbackJson = await feedbackResponse.json()
+
+    const feedbackEmails = feedbackJson.map(feedback => feedback.email);
+
+    userJson.forEach(user => {
+        if (!feedbackEmails.includes(user.employeeEmail)) {
+            array.push(user.employeeEmail);
+        }
+    });
+
+    const mails = array.join(',');
+    
     const formdata = new FormData();
     formdata.append("mails",`${mails}` );
 
