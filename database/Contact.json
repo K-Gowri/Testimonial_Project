@@ -3,19 +3,19 @@
     {
       "id": "1",
       "picture": "http://127.0.0.1:5500/Testimonial_Project/Images/user-1.jpg",
-      "employeeName": "Rajakumari",
-      "employeeEmail": "Rajakumari@gmail.com",
+      "employeeName": "Gowri K",
+      "employeeEmail": "gowrikalimuthu2003@gmail.com",
       "employeeMobile": "09384475877",
-      "startDate": "2024-06-06",
+      "startDate": "2024-05-21",
       "feedback": "Pending"
     },
     {
       "id": "2",
       "picture": "http://127.0.0.1:5500/Testimonial_Project/Images/user-1.jpg",
-      "employeeName": "Nithya ",
-      "employeeEmail": "Nitha_cse@gmail.com",
-      "employeeMobile": "09384475877",
-      "startDate": "2024-05-29",
+      "employeeName": "Sweetha",
+      "employeeEmail": "Sweethaswarani@gmail.com",
+      "employeeMobile": "09787507910",
+      "startDate": "2024-05-31",
       "feedback": "Pending"
     }
   ]
